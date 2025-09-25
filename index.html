@@ -1,13 +1,293 @@
-<title> German Car Dealership </title>
-<h1> German Car Dealership </h1>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Audi Select — Premium Audi Cars for Sale</title>
+  <meta name="description" content="Browse certified Audi models — dynamic performance, luxurious interiors, and exclusive offers." />
+  <style>
+    :root{
+      --accent:#BB0A1E; /* Audi red */
+      --muted:#6b7280;
+      --bg:#0f1724;
+      --card:#0b1220;
+      --glass: rgba(255,255,255,0.04);
+      --radius:12px;
+      --max:1100px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#07101a 0%, #071821 50%, #041117 100%);color:#e6eef8}
+    a{color:var(--accent);text-decoration:none}
+    .container{max-width:var(--max);margin:36px auto;padding:24px}
 
-<h2> We sell every German Cars: </h2>
-<br> i. Audi </br>
-<br> ii. BMW </br>
-<p> iii. Mercedes-Benz </p>
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,#111827,#001217);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff}
+    h1{margin:0;font-size:1.4rem}
+    p.lead{color:var(--muted);margin:6px 0 0;font-size:0.95rem}
 
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:28px;align-items:start}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));border-radius:var(--radius);padding:20px;box-shadow:0 6px 18px rgba(0,0,0,0.6);}
 
-<br> <h1> this is heading 1 </h1> </br>
-<br> <h2> this is heading 2 </h2> </br>
-<br> <h3> this is heading 3 </h3> </br>
-<br> <h4> this is heading 4 </h4> </br>
+    .search{display:flex;gap:8px;margin-bottom:12px}
+    .search input, .search select{flex:1;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .btn{background:var(--accent);border:none;padding:10px 14px;border-radius:10px;color:white;font-weight:600;cursor:pointer}
+
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+    .chip{background:var(--glass);padding:8px 10px;border-radius:999px;font-size:0.9rem;color:var(--muted);cursor:pointer}
+
+    .list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:12px}
+    .model{display:flex;gap:12px;align-items:center;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+    .thumb{width:140px;height:90px;border-radius:8px;background:#07121a;display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:var(--muted);overflow:hidden}
+    .meta{flex:1}
+    .meta h3{margin:0;font-size:1.05rem}
+    .meta p{margin:6px 0 0;color:var(--muted);font-size:0.92rem}
+    .price{font-weight:700;color:#f8fafc}
+
+    aside .card h4{margin-top:0}
+    .offer{background:linear-gradient(90deg, rgba(187,10,30,0.12), rgba(187,10,30,0.04));padding:12px;border-radius:10px;margin-bottom:12px}
+    .specs{display:flex;gap:8px;flex-direction:column}
+    .specs .row{display:flex;justify-content:space-between;color:var(--muted);font-size:0.95rem}
+
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+    .gallery img{width:100%;height:120px;object-fit:cover;border-radius:8px}
+
+    footer{margin-top:36px;text-align:center;color:var(--muted);font-size:0.9rem}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .list{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .thumb{width:120px;height:76px}
+    }
+
+    /* Modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:50}
+    .modal.open{display:flex}
+    .modal .sheet{width:min(760px,94%);max-height:86vh;overflow:auto;background:linear-gradient(180deg,#071823,#05121a);padding:18px;border-radius:12px}
+    .close{background:transparent;border:0;color:var(--muted);font-weight:700;cursor:pointer}
+
+    form input, form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    form label{display:block;margin:10px 0 6px;color:var(--muted);font-size:0.9rem}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">A</div>
+        <div>
+          <h1>Audi Select</h1>
+          <p class="lead">Certified Audi cars • Performance & Luxury • Trade-in available</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#models">Models</a> &nbsp; • &nbsp; <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
+          <div>
+            <h2 style="margin:0">Find your next Audi</h2>
+            <p style="margin:6px 0 0;color:var(--muted)">Select from new and pre-owned Audi vehicles — meticulously inspected and warranty-backed.</p>
+          </div>
+          <div style="text-align:right;color:var(--muted)">Financing from <strong>3.9% APR</strong></div>
+        </div>
+
+        <div class="search" style="margin-top:18px">
+          <input id="q" placeholder="Search model, e.g., A4, Q5, RS7" />
+          <select id="sort">
+            <option value="popular">Most popular</option>
+            <option value="price-asc">Price: Low → High</option>
+            <option value="price-desc">Price: High → Low</option>
+            <option value="year-desc">Newest first</option>
+          </select>
+          <button class="btn" onclick="applyFilters()">Search</button>
+        </div>
+
+        <div class="filters">
+          <div class="chip">New</div>
+          <div class="chip">Pre‑owned</div>
+          <div class="chip">Certified</div>
+          <div class="chip">Electric</div>
+        </div>
+
+        <div id="models" class="list" aria-live="polite">
+          <!-- models populated by JS -->
+        </div>
+
+      </div>
+
+      <aside>
+        <div class="card">
+          <h4>Special Offer</h4>
+          <div class="offer">
+            <strong>Summer Performance Package</strong>
+            <div style="color:var(--muted);font-size:0.95rem;margin-top:6px">Complimentary 3‑year maintenance on select models. Limited stock.</div>
+          </div>
+
+          <h4>Quick Specs</h4>
+          <div class="specs">
+            <div class="row"><span>Warranty</span><strong>2 years / 40,000 km</strong></div>
+            <div class="row"><span>Inspection</span><span>200‑point certified</span></div>
+            <div class="row"><span>Delivery</span><span>Nationwide</span></div>
+          </div>
+
+          <h4 style="margin-top:12px">Gallery</h4>
+          <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=000" alt="Audi exterior 1">
+            <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=000" alt="Audi interior">
+            <img src="https://images.unsplash.com/photo-1549921296-3f5bd6f2b1d1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=000" alt="Audi side view">
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px" id="contact">
+          <h4>Contact Sales</h4>
+          <p style="color:var(--muted);margin:0 0 12px">Ready for a test drive or want a tailored quote? Send us a message.</p>
+          <form onsubmit="event.preventDefault();submitForm();">
+            <label for="name">Full name</label>
+            <input id="name" required>
+            <label for="email">Email</label>
+            <input id="email" type="email" required>
+            <label for="phone">Phone</label>
+            <input id="phone" required>
+            <label for="message">Message</label>
+            <textarea id="message" rows="3" placeholder="Which model are you interested in?"></textarea>
+            <div style="margin-top:10px;display:flex;gap:8px">
+              <button class="btn" type="submit">Send</button>
+              <button type="button" class="close" onclick="openWhatsApp()">Chat on WhatsApp</button>
+            </div>
+          </form>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      © <span id="yr"></span> Audi Select — All Rights Reserved • <span style="color:var(--muted)">Privacy & Terms</span>
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true">
+    <div class="sheet card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <h3 id="m-title">Model</h3>
+          <div id="m-sub" style="color:var(--muted)"></div>
+        </div>
+        <div>
+          <button class="close" onclick="closeModal()">✕</button>
+        </div>
+      </div>
+      <div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div>
+          <img id="m-img" src="" style="width:100%;border-radius:10px;object-fit:cover;min-height:180px" alt="">
+        </div>
+        <div>
+          <p id="m-desc" style="color:var(--muted)"></p>
+          <div style="margin-top:12px">
+            <div class="row" style="display:flex;justify-content:space-between;margin-bottom:8px"><span>Mileage</span><strong id="m-mile"></strong></div>
+            <div class="row" style="display:flex;justify-content:space-between;margin-bottom:8px"><span>Engine</span><strong id="m-engine"></strong></div>
+            <div class="row" style="display:flex;justify-content:space-between;margin-bottom:8px"><span>Transmission</span><strong id="m-trans"></strong></div>
+            <div style="margin-top:14px"><button class="btn" onclick="contactForModel()">Contact about this car</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // sample inventory
+    const inventory = [
+      {id:1,model:'Audi A4',year:2024,price:38900,miles:12000,engine:'2.0L TFSI',trans:'Automatic',img:'https://images.unsplash.com/photo-1599058917210-0d7f7a4d6b3a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=000',desc:'Refined executive sedan with hallmark Audi handling and a luxurious cabin.'},
+      {id:2,model:'Audi Q5',year:2023,price:45950,miles:22000,engine:'2.0L Turbo',trans:'Automatic',img:'https://images.unsplash.com/photo-1542365887-2a03f6b8c3a7?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=000',desc:'Versatile mid-size SUV combining comfort, tech and confident quattro traction.'},
+      {id:3,model:'Audi RS7',year:2022,price:125900,miles:8000,engine:'4.0L V8',trans:'8-speed Automatic',img:'https://images.unsplash.com/photo-1523986371872-9d3ba2e2f642?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=000',desc:'High-performance sportback delivering blistering acceleration and sculpted agility.'},
+      {id:4,model:'Audi e-tron GT',year:2024,price:99900,miles:3000,engine:'Electric Dual Motor',trans:'Single-speed',img:'https://images.unsplash.com/photo-1628157588553-6d1b36baf5a6?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=000',desc:'All-electric grand tourer with instant torque and premium craftsmanship.'}
+    ];
+
+    function formatPrice(n){ return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n); }
+
+    function renderList(items){
+      const el = document.getElementById('models'); el.innerHTML='';
+      items.forEach(it=>{
+        const div = document.createElement('div'); div.className='model';
+        div.innerHTML = `
+          <div class="thumb"><img src="${it.img}" alt="${it.model}" style="width:100%;height:100%;object-fit:cover"></div>
+          <div class="meta">
+            <h3>${it.model} <span style="font-weight:500;color:var(--muted);font-size:0.9rem">• ${it.year}</span></h3>
+            <p>${it.desc}</p>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+              <div style="color:var(--muted);font-size:0.9rem">${it.miles.toLocaleString()} miles</div>
+              <div style="text-align:right"><div class="price">${formatPrice(it.price)}</div><button class="btn" style="margin-top:8px" onclick="openModal(${it.id})">View</button></div>
+            </div>
+          </div>
+        `;
+        el.appendChild(div);
+      })
+    }
+
+    // initial render
+    renderList(inventory);
+
+    function applyFilters(){
+      const q = document.getElementById('q').value.trim().toLowerCase();
+      let items = inventory.slice();
+      if(q){ items = items.filter(i => (i.model + ' ' + i.year).toLowerCase().includes(q) || i.desc.toLowerCase().includes(q)); }
+      const sort = document.getElementById('sort').value;
+      if(sort==='price-asc') items.sort((a,b)=>a.price-b.price);
+      if(sort==='price-desc') items.sort((a,b)=>b.price-a.price);
+      if(sort==='year-desc') items.sort((a,b)=>b.year-b.year);
+      renderList(items);
+    }
+
+    // modal
+    function openModal(id){
+      const car = inventory.find(c=>c.id===id);
+      if(!car) return;
+      document.getElementById('m-title').textContent = car.model + ' — ' + car.year;
+      document.getElementById('m-sub').textContent = formatPrice(car.price);
+      document.getElementById('m-img').src = car.img;
+      document.getElementById('m-desc').textContent = car.desc;
+      document.getElementById('m-mile').textContent = car.miles.toLocaleString();
+      document.getElementById('m-engine').textContent = car.engine;
+      document.getElementById('m-trans').textContent = car.trans;
+      document.getElementById('modal').classList.add('open');
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    function closeModal(){ document.getElementById('modal').classList.remove('open'); }
+
+    function submitForm(){
+      const name=document.getElementById('name').value.trim();
+      const email=document.getElementById('email').value.trim();
+      const phone=document.getElementById('phone').value.trim();
+      if(!name||!email||!phone){ alert('Please fill name, email and phone.'); return; }
+      // emulate submission
+      alert('Thanks, '+name+'. We received your inquiry and will contact you shortly.');
+      document.querySelector('form').reset();
+    }
+
+    function contactForModel(){
+      closeModal();
+      alert('Opening contact form — the model details will be prefilled.');
+      // simple prefill (for demo)
+      document.getElementById('message').value = 'I am interested in this model. Please send details and availability.';
+      window.location.href = '#contact';
+    }
+
+    function openWhatsApp(){
+      const phone = encodeURIComponent(document.getElementById('phone').value || '');
+      const msg = encodeURIComponent('Hi, I am interested in Audi models. Please send details.');
+      window.open('https://wa.me/?text='+msg, '_blank');
+    }
+
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+  </script>
+</body>
+</html>
