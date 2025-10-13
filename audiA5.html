@@ -16,21 +16,22 @@
     header {
       background: #e63946;
       color: #fff;
-      padding: 15px;
-      font-size: 1.5rem;
+      padding: 20px;
+      font-size: 1.8rem;
+      font-weight: bold;
     }
 
     video {
       width: 80%;
-      max-width: 800px;
-      margin-top: 20px;
+      max-width: 900px;
+      margin-top: 30px;
       border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
     .details {
-      max-width: 800px;
-      margin: 30px auto;
+      max-width: 900px;
+      margin: 40px auto;
       background: #fff;
       padding: 25px;
       border-radius: 12px;
@@ -40,43 +41,108 @@
 
     .details h2 {
       color: #e63946;
+      font-size: 1.6rem;
+      border-bottom: 2px solid #e63946;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
     }
 
-    a.back {
+    .details p {
+      margin: 10px 0;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    .specs {
+      margin-top: 20px;
+    }
+
+    .specs table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .specs th, .specs td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .specs th {
+      background: #e63946;
+      color: #fff;
+    }
+
+    .btn {
       display: inline-block;
       margin-top: 20px;
       background: green;
       color: #fff;
-      padding: 10px 20px;
+      padding: 12px 24px;
       border-radius: 6px;
       text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #0f0;
+      color: #000;
+    }
+
+    a.back {
+      display: inline-block;
+      margin-top: 25px;
+      color: #e63946;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     a.back:hover {
-      background: #0f0;
-      color: #000;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <header>Audi A5 Details</header>
+  <header>Audi A5 — Details & Overview</header>
 
+  <!-- 🔹 Video Section -->
   <video controls autoplay loop muted>
     <source src="Videos/Audi/Meet the Audi A5 Avant and Sedan - Audi (720p, h264) (1).mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
+  <!-- 🔹 Car Details -->
   <div class="details">
     <h2>About the Audi A5</h2>
     <p>
-      The Audi A5 blends elegance, performance, and technology. Available as a Sportback, Coupe, or Cabriolet, 
-      it offers turbocharged power, quattro all-wheel drive, and a refined interior built for comfort and control.
+      The <strong>Audi A5</strong> perfectly blends sporty elegance with cutting-edge technology.
+      Available in Coupe, Sportback, and Cabriolet variants, it combines precision handling,
+      turbocharged performance, and a beautifully refined interior designed around the driver.
     </p>
-    <p><strong>Starting Price:</strong> KES 8,820,300.00</p>
-    <p><strong>Performance:</strong> 2.0L TFSI engine, 7-speed S-tronic, 249 HP</p>
-    <p><strong>Fuel Efficiency:</strong> Approx. 15 km/l (combined)</p>
+    <p>
+      With its striking design, advanced driver assistance systems, and the legendary <strong>quattro</strong> all-wheel drive,
+      the A5 delivers an experience that’s both thrilling and comfortable — a true symbol of German engineering excellence.
+    </p>
 
+    <div class="specs">
+      <h2>Technical Specifications</h2>
+      <table>
+        <tr><th>Model</th><td>Audi A5 Sportback 2.0 TFSI</td></tr>
+        <tr><th>Engine</th><td>2.0L Turbocharged Inline-4</td></tr>
+        <tr><th>Transmission</th><td>7-speed S-Tronic Automatic</td></tr>
+        <tr><th>Drive System</th><td>quattro All-Wheel Drive</td></tr>
+        <tr><th>Horsepower</th><td>249 HP</td></tr>
+        <tr><th>Acceleration (0–100 km/h)</th><td>6.1 seconds</td></tr>
+        <tr><th>Top Speed</th><td>250 km/h (electronically limited)</td></tr>
+        <tr><th>Fuel Efficiency</th><td>Approx. 15 km/l (combined)</td></tr>
+        <tr><th>Starting Price</th><td><strong>KES 8,820,300.00</strong></td></tr>
+      </table>
+    </div>
+
+    <a href="buy-a5.html" class="btn">Buy Now</a><br>
     <a href="Audi.html" class="back">← Back to Audi Models</a>
   </div>
 </body>
 </html>
+
