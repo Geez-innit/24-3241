@@ -1,4 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colourful Tables</title>
 <style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 28px;
+    color: #111;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 45%;
+    margin: 20px;
+    float: left;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+  }
+
+  /* ===== TABLE 1 STYLES ===== */
+  #table1 th {
+    background-color: #003366;
+    color: orange;
+  }
+
+  #table1 tr:nth-child(2) {
+    background-color: #f4cccc;
+    color: #6a1b9a;
+  }
+
+  #table1 tr:nth-child(3) {
+    background-color: #d9ead3;
+    color: #0b5394;
+  }
+
+  #table1 tr:nth-child(4) {
+    background-color: #cfe2f3;
+    color: #a61c00;
+  }
+
+  #table1 tr:nth-child(5) {
+    background-color: #fff2cc;
+    color: #38761d;
+  }
+
+  /* ===== TABLE 2 STYLES ===== */
+  #table2 th {
+    background-color: #004d99;
+    color: white;
+  }
+
+  #table2 tr:nth-child(2) {
+    background-color: #fde9d9;
+    color: #990000;
+  }
+
+  #table2 tr:nth-child(3) {
+    background-color: #e2f0d9;
+    color: #0b5394;
+  }
+
+  #table2 tr:nth-child(4) {
+    background-color: #d9e1f2;
+    color: #783f04;
+  }
+
+  #table2 tr:nth-child(5) {
+    background-color: #fce5cd;
+    color: #274e13;
+  }
+ 
 p
 { color : red;
 }
@@ -20,61 +104,6 @@ h2
 h3
 { color : green;
 }
- body {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff;
-    padding: 20px;
-  }
-
-  h2 {
-    font-size: 28px;
-    color: black;
-  }
-
-  table {
-    border-collapse: collapse;
-    width: 45%;
-    margin: 20px;
-    float: left;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  }
-
-  th, td {
-    border: 1px solid #ddd;
-    text-align: center;
-    padding: 10px;
-  }
-
-  /* TABLE 1 STYLE */
-  #table1 th {
-    background-color: #5d7b9d;
-    color: orange;
-    font-weight: bold;
-  }
-
-  #table1 tr:nth-child(even) {
-    background-color: #a2e7f0;
-  }
-
-  #table1 tr:nth-child(odd) {
-    background-color: #4c7db5;
-    color: white;
-  }
-
-  /* TABLE 2 STYLE */
-  #table2 th {
-    background-color: #0066cc;
-    color: white;
-    font-weight: bold;
-  }
-
-  #table2 tr:nth-child(even) {
-    background-color: #e3f2fd;
-  }
-
-  #table2 tr:nth-child(odd) {
-    background-color: #bbdefb;
-  }
 </style>
 
 <p><strong><u><i> mhhhhhhhhhhhh </i></u></strong></p>
@@ -89,6 +118,8 @@ h3
 
 <h3> mhh </h3>
 
+<body>
+
 <h2>Table 1</h2>
 <table id="table1">
   <tr>
@@ -99,25 +130,32 @@ h3
     <th>Category</th>
   </tr>
   <tr>
-    <td>Apples</td>
-    <td>KES 20</td>
-    <td>10</td>
-    <td>KES 200</td>
+    <td>Watermelon</td>
+    <td>KES 50</td>
+    <td>5</td>
+    <td>KES 250</td>
     <td>Fruits</td>
   </tr>
   <tr>
-    <td>Oranges</td>
-    <td>KES 60</td>
-    <td>8</td>
-    <td>KES 480</td>
-    <td>Citrus</td>
+    <td>Tomatoes</td>
+    <td>KES 40</td>
+    <td>15</td>
+    <td>KES 600</td>
+    <td>Vegetables</td>
   </tr>
   <tr>
-    <td>Bananas</td>
+    <td>Carrots</td>
+    <td>KES 25</td>
+    <td>20</td>
+    <td>KES 500</td>
+    <td>Root</td>
+  </tr>
+  <tr>
+    <td>Spinach</td>
     <td>KES 30</td>
-    <td>12</td>
-    <td>KES 360</td>
-    <td>Tropical</td>
+    <td>10</td>
+    <td>KES 300</td>
+    <td>Leafy</td>
   </tr>
 </table>
 
@@ -131,25 +169,32 @@ h3
     <th>Rating</th>
   </tr>
   <tr>
-    <td>Marks</td>
-    <td>Muranga</td>
-    <td>0723456789</td>
-    <td>Mangos</td>
-    <td>⭐⭐⭐</td>
-  </tr>
-  <tr>
-    <td>James</td>
-    <td>Machakos</td>
-    <td>0721567654</td>
-    <td>Oranges</td>
+    <td>Peter’s Farm</td>
+    <td>Nyeri</td>
+    <td>0712456789</td>
+    <td>Watermelon</td>
     <td>⭐⭐⭐⭐</td>
   </tr>
   <tr>
-    <td>Marys</td>
-    <td>Kisii</td>
-    <td>0727123456</td>
-    <td>Avocado</td>
+    <td>Grace Agro</td>
+    <td>Nakuru</td>
+    <td>0713987456</td>
+    <td>Tomatoes</td>
+    <td>⭐⭐⭐</td>
+  </tr>
+  <tr>
+    <td>Elijah Fields</td>
+    <td>Eldoret</td>
+    <td>0721675432</td>
+    <td>Carrots</td>
     <td>⭐⭐⭐⭐⭐</td>
+  </tr>
+  <tr>
+    <td>Mary’s Greens</td>
+    <td>Kisii</td>
+    <td>0723456123</td>
+    <td>Spinach</td>
+    <td>⭐⭐⭐⭐</td>
   </tr>
 </table>
 
