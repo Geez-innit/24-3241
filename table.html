@@ -3,207 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Assignment</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #fff;
-    padding: 20px;
-  }
-
-  h2 {
-    font-size: 28px;
-    color: #111;
-  }
-
-  table {
-    border-collapse: collapse;
-    width: 45%;
-    margin: 20px;
-    float: left;
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
-  }
-
-  th, td {
-    border: 1px solid #ddd;
-    text-align: center;
-    padding: 10px;
-    font-weight: bold;
-  }
-
-  /* ==== TABLE 1 ==== */
-  #table1 th {
-    background-color: #003366;
-    color: orange;
-  }
-
-  /* Row 1 colors */
-  #table1 td:nth-child(1) { background-color: #f4cccc; color: #6a1b9a; }
-  #table1 td:nth-child(2) { background-color: #cfe2f3; color: #a61c00; }
-  #table1 td:nth-child(3) { background-color: #d9ead3; color: #0b5394; }
-  #table1 td:nth-child(4) { background-color: #fff2cc; color: #38761d; }
-  #table1 td:nth-child(5) { background-color: #ead1dc; color: #0c343d; }
-
-  /* Make each following row have different patterns */
-  #table1 tr:nth-child(3) td:nth-child(1) { background-color: #c9daf8; color: #20124d; }
-  #table1 tr:nth-child(3) td:nth-child(2) { background-color: #fce5cd; color: #783f04; }
-  #table1 tr:nth-child(3) td:nth-child(3) { background-color: #e6b8af; color: #134f5c; }
-  #table1 tr:nth-child(3) td:nth-child(4) { background-color: #b6d7a8; color: #741b47; }
-  #table1 tr:nth-child(3) td:nth-child(5) { background-color: #d9d2e9; color: #990000; }
-
-  #table1 tr:nth-child(4) td:nth-child(1) { background-color: #f9cb9c; color: #274e13; }
-  #table1 tr:nth-child(4) td:nth-child(2) { background-color: #a4c2f4; color: #660000; }
-  #table1 tr:nth-child(4) td:nth-child(3) { background-color: #ffd966; color: #351c75; }
-  #table1 tr:nth-child(4) td:nth-child(4) { background-color: #b7b7b7; color: #000066; }
-  #table1 tr:nth-child(4) td:nth-child(5) { background-color: #b6d7a8; color: #990099; }
-
-  #table1 tr:nth-child(5) td:nth-child(1) { background-color: #ead1dc; color: #0b5394; }
-  #table1 tr:nth-child(5) td:nth-child(2) { background-color: #f4cccc; color: #38761d; }
-  #table1 tr:nth-child(5) td:nth-child(3) { background-color: #cfe2f3; color: #a61c00; }
-  #table1 tr:nth-child(5) td:nth-child(4) { background-color: #d9ead3; color: #351c75; }
-  #table1 tr:nth-child(5) td:nth-child(5) { background-color: #fff2cc; color: #000066; }
-
-  /* ==== TABLE 2 ==== */
-  #table2 th {
-    background-color: #004d99;
-    color: white;
-  }
-
-  #table2 td:nth-child(1) { background-color: #fde9d9; color: #990000; }
-  #table2 td:nth-child(2) { background-color: #e2f0d9; color: #0b5394; }
-  #table2 td:nth-child(3) { background-color: #d9e1f2; color: #783f04; }
-  #table2 td:nth-child(4) { background-color: #fce5cd; color: #274e13; }
-  #table2 td:nth-child(5) { background-color: #ead1dc; color: #20124d; }
-
-  #table2 tr:nth-child(3) td:nth-child(1) { background-color: #cfe2f3; color: #990099; }
-  #table2 tr:nth-child(3) td:nth-child(2) { background-color: #b6d7a8; color: #660000; }
-  #table2 tr:nth-child(3) td:nth-child(3) { background-color: #d9ead3; color: #351c75; }
-  #table2 tr:nth-child(3) td:nth-child(4) { background-color: #f4cccc; color: #0b5394; }
-  #table2 tr:nth-child(3) td:nth-child(5) { background-color: #fce5cd; color: #134f5c; }
-
-  #table2 tr:nth-child(4) td:nth-child(1) { background-color: #fff2cc; color: #351c75; }
-  #table2 tr:nth-child(4) td:nth-child(2) { background-color: #a4c2f4; color: #783f04; }
-  #table2 tr:nth-child(4) td:nth-child(3) { background-color: #c9daf8; color: #38761d; }
-  #table2 tr:nth-child(4) td:nth-child(4) { background-color: #b6d7a8; color: #a61c00; }
-  #table2 tr:nth-child(4) td:nth-child(5) { background-color: #d9d2e9; color: #0c343d; }
-
-  #table2 tr:nth-child(5) td:nth-child(1) { background-color: #e6b8af; color: #000066; }
-  #table2 tr:nth-child(5) td:nth-child(2) { background-color: #b7b7b7; color: #990000; }
-  #table2 tr:nth-child(5) td:nth-child(3) { background-color: #ffd966; color: #0b5394; }
-  #table2 tr:nth-child(5) td:nth-child(4) { background-color: #b6d7a8; color: #351c75; }
-  #table2 tr:nth-child(5) td:nth-child(5) { background-color: #cfe2f3; color: #134f5c; }
-
-  p
-{ color : red;
-}
-p1
-{ color : blue;
-}
-p2
-{ color : yellow;
-}
-p3
-{ color : green;
-}
-h1
-{ color : blue;
-}
-h2
-{ color : purple;
-}
-h3
-{ color : green;
-}
-</style>
+<title>Colourful Tables Inline + External CSS</title>
+<link rel="stylesheet" href="styles.css">
 </head>
-  <p><strong><u><i> mhhhhhhhhhhhh </i></u></strong></p>
-<p1>lol </p1>
-<p2>poki </p2>
-<p3>mlppp </p3>
-<p>mnhfso </p>
-
-<h1> mhh </h1>
-
-<h2> mhh </h2>
-
-<h3> mhh </h3>
 <body>
 
 <h2>Table 1</h2>
-<table id="table1">
+<table>
   <tr>
-    <th>Product</th>
-    <th>Price</th>
-    <th>Quantity</th>
-    <th>Total</th>
-    <th>Category</th>
+    <th style="background-color:#ff9999; color:#000066;">Product</th>
+    <th style="background-color:#99ff99; color:#660000;">Price</th>
+    <th style="background-color:#9999ff; color:#003300;">Quantity</th>
+    <th style="background-color:#ffff99; color:#4b0082;">Total</th>
+    <th style="background-color:#ffccff; color:#003366;">Category</th>
   </tr>
   <tr>
-    <td>Apples</td>
-    <td>KES 25</td>
-    <td>8</td>
-    <td>KES 200</td>
-    <td>Fruit</td>
+    <td style="background-color:#ffcc99; color:#660033;">Apples</td>
+    <td style="background-color:#ccffcc; color:#0000cc;">KES 25</td>
+    <td style="background-color:#ccffff; color:#660000;">8</td>
+    <td style="background-color:#ffb6c1; color:#003300;">KES 200</td>
+    <td style="background-color:#ffffcc; color:#000099;">Fruit</td>
   </tr>
   <tr>
-    <td>Bananas</td>
-    <td>KES 30</td>
-    <td>12</td>
-    <td>KES 360</td>
-    <td>Tropical</td>
+    <td style="background-color:#ffcce5; color:#274e13;">Bananas</td>
+    <td style="background-color:#b6d7a8; color:#990000;">KES 30</td>
+    <td style="background-color:#a4c2f4; color:#351c75;">12</td>
+    <td style="background-color:#fff2cc; color:#0b5394;">KES 360</td>
+    <td style="background-color:#ead1dc; color:#20124d;">Tropical</td>
   </tr>
   <tr>
-    <td>Oranges</td>
-    <td>KES 60</td>
-    <td>10</td>
-    <td>KES 600</td>
-    <td>Citrus</td>
+    <td style="background-color:#c9daf8; color:#990099;">Oranges</td>
+    <td style="background-color:#e2f0d9; color:#660000;">KES 60</td>
+    <td style="background-color:#f9cb9c; color:#134f5c;">10</td>
+    <td style="background-color:#d9d2e9; color:#351c75;">KES 600</td>
+    <td style="background-color:#cfe2f3; color:#990000;">Citrus</td>
   </tr>
   <tr>
-    <td>Pineapple</td>
-    <td>KES 80</td>
-    <td>5</td>
-    <td>KES 400</td>
-    <td>Fruit</td>
+    <td style="background-color:#d9ead3; color:#a61c00;">Pineapple</td>
+    <td style="background-color:#fce5cd; color:#0b5394;">KES 80</td>
+    <td style="background-color:#cfe2f3; color:#274e13;">5</td>
+    <td style="background-color:#f4cccc; color:#351c75;">KES 400</td>
+    <td style="background-color:#ead1dc; color:#000066;">Fruit</td>
   </tr>
 </table>
 
+
 <h2>Table 2</h2>
-<table id="table2">
+<table>
   <tr>
-    <th>Farm</th>
-    <th>Location</th>
-    <th>Contacts</th>
-    <th>Products</th>
-    <th>Rating</th>
+    <th style="background-color:#99ccff; color:#660000;">Farm</th>
+    <th style="background-color:#ffccff; color:#003366;">Location</th>
+    <th style="background-color:#ccffcc; color:#990099;">Contacts</th>
+    <th style="background-color:#ffffcc; color:#274e13;">Products</th>
+    <th style="background-color:#ff9999; color:#0000cc;">Rating</th>
   </tr>
   <tr>
-    <td>Green Valley</td>
-    <td>Muranga</td>
-    <td>0712345678</td>
-    <td>Apples</td>
-    <td>⭐⭐⭐</td>
+    <td style="background-color:#f9cb9c; color:#351c75;">Green Valley</td>
+    <td style="background-color:#cfe2f3; color:#990000;">Muranga</td>
+    <td style="background-color:#d9ead3; color:#4b0082;">0712345678</td>
+    <td style="background-color:#fff2cc; color:#003300;">Apples</td>
+    <td style="background-color:#f4cccc; color:#274e13;">⭐⭐⭐</td>
   </tr>
   <tr>
-    <td>Sunny Fields</td>
-    <td>Machakos</td>
-    <td>0721456789</td>
-    <td>Bananas</td>
-    <td>⭐⭐⭐⭐</td>
+    <td style="background-color:#ead1dc; color:#000066;">Sunny Fields</td>
+    <td style="background-color:#e2f0d9; color:#660000;">Machakos</td>
+    <td style="background-color:#b6d7a8; color:#990099;">0721456789</td>
+    <td style="background-color:#c9daf8; color:#351c75;">Bananas</td>
+    <td style="background-color:#d9e1f2; color:#a61c00;">⭐⭐⭐⭐</td>
   </tr>
   <tr>
-    <td>Riverine Farm</td>
-    <td>Nakuru</td>
-    <td>0732567891</td>
-    <td>Oranges</td>
-    <td>⭐⭐⭐⭐⭐</td>
+    <td style="background-color:#fce5cd; color:#0b5394;">Riverine Farm</td>
+    <td style="background-color:#cfe2f3; color:#990000;">Nakuru</td>
+    <td style="background-color:#f4cccc; color:#351c75;">0732567891</td>
+    <td style="background-color:#b6d7a8; color:#000066;">Oranges</td>
+    <td style="background-color:#ffd966; color:#660000;">⭐⭐⭐⭐⭐</td>
   </tr>
   <tr>
-    <td>Coastal Produce</td>
-    <td>Mombasa</td>
-    <td>0743678912</td>
-    <td>Pineapple</td>
-    <td>⭐⭐⭐</td>
+    <td style="background-color:#fff2cc; color:#4b0082;">Coastal Produce</td>
+    <td style="background-color:#c9daf8; color:#351c75;">Mombasa</td>
+    <td style="background-color:#e6b8af; color:#274e13;">0743678912</td>
+    <td style="background-color:#ead1dc; color:#0b5394;">Pineapple</td>
+    <td style="background-color:#b7b7b7; color:#660000;">⭐⭐⭐</td>
   </tr>
 </table>
 
